@@ -43,14 +43,14 @@ class _splashScreenState extends State<splashScreen> {
             Image.asset("assets/images/invoice(1).gif",scale: 1.5,),
             Text("Invoice Generator",
               style: TextStyle(
-                color: theme2,
+                color: theme3,
                 fontSize: 32,
                 fontWeight: FontWeight.bold
               ),),
             const Spacer(),
             SpinKitFadingCircle(
               size: 56,
-              color: theme2,
+              color: theme3,
             ),
             const Spacer(
               flex: 3,

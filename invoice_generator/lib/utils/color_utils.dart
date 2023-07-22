@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
 
-Color theme1 = Color(0xff6B68F1);
-Color theme2 = Color(0xffFFFFFF);
+Color theme1 = Color(0xffc5c5ed);
+Color theme2 = Color(0xff2726b5);
+Color theme3 = Color(0xffFFFFFF);
