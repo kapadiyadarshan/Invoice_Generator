@@ -14,7 +14,11 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Page"),
+        title: Text("Home Page",
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              color: theme2
+          ),),
         centerTitle: true,
       ),
       body: Padding(
@@ -22,6 +26,7 @@ class _homePageState extends State<homePage> {
         child: Column(
           children: [
             const Spacer(),
+            Image.asset("assets/images/inv.png",scale: 8,),
             Text("No Invoices!",
             style: TextStyle(
               fontSize: 22,

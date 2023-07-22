@@ -1,21 +1,16 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:invoice_generator/utils/color_utils.dart';
-import 'package:invoice_generator/utils/routes_utils.dart';
-import 'package:invoice_generator/views/components/myBackButton.dart';
 
-import '../../Global/Global_class.dart';
+import '../../utils/color_utils.dart';
+import '../components/myBackButton.dart';
 
-class businessPage extends StatefulWidget {
-  const businessPage({Key? key}) : super(key: key);
+class customerPage extends StatefulWidget {
+  const customerPage({Key? key}) : super(key: key);
 
   @override
-  State<businessPage> createState() => _businessPageState();
+  State<customerPage> createState() => _customerPageState();
 }
 
-class _businessPageState extends State<businessPage> {
+class _customerPageState extends State<customerPage> {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -23,11 +18,11 @@ class _businessPageState extends State<businessPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Business Info",
-          style: TextStyle(
-              fontWeight: FontWeight.w500,
-              color: theme2
-          ),),
+        title: Text("Customer Info",
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          color: theme2
+        ),),
         centerTitle: true,
         leading: const MyBackButton(),
       ),
@@ -40,17 +35,17 @@ class _businessPageState extends State<businessPage> {
               width: double.infinity,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: theme3,
-                border: Border.all(
-                    width: 2,
-                  color: theme1
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: theme1,
-                    offset: const Offset(5, 5)
-                  )
-                ]
+                  color: theme3,
+                  border: Border.all(
+                      width: 2,
+                      color: theme1
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                        color: theme1,
+                        offset: const Offset(5, 5)
+                    )
+                  ]
               ),
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -59,49 +54,17 @@ class _businessPageState extends State<businessPage> {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     children: [
-                      //Logo
-                      GestureDetector(
-                        onTap: () async {
-                          ImagePicker pickImg = ImagePicker();
-                          XFile? file;
-
-                          file = await pickImg.pickImage(source: ImageSource.gallery);
-
-                          if(file != null)
-                          {
-                            setState(() {
-                              Global.image = File(file!.path);
-                            });
-                          }
-                        },
-                        child: Container(
-                          height: 160,
-                          width: 160,
-
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                          ),
-                          alignment: Alignment.center,
-                          child: const Text("Add Logo",
-                          style: TextStyle(
-                            color: Colors.grey
-                          ),),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
                       //Name
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
-                            {
-                              return "Business Name is required";
-                            }
+                          {
+                            return "Customer Name is required";
+                          }
                           else
-                            {
-                              return null;
-                            }
+                          {
+                            return null;
+                          }
                         },
                         showCursor: true,
                         cursorColor: theme2,
@@ -109,13 +72,13 @@ class _businessPageState extends State<businessPage> {
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           isDense: true,
-                          labelText: "Business Name",
+                          labelText: "Customer Name",
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Business Name",
+                          hintText: "Enter Customer Name",
                           prefixIcon: const Icon(
-                            Icons.business,
+                            Icons.person,
                           ),
                           prefixIconColor: theme2,
                           border: const OutlineInputBorder(),
@@ -135,7 +98,7 @@ class _businessPageState extends State<businessPage> {
                         validator: (value) {
                           if(value!.isEmpty)
                           {
-                            return "Business Address is required";
+                            return "Customer Address is required";
                           }
                           else
                           {
@@ -152,7 +115,7 @@ class _businessPageState extends State<businessPage> {
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Business Address",
+                          hintText: "Enter Customer Address",
                           prefixIcon: const Icon(
                             Icons.location_on,
                           ),
@@ -174,7 +137,7 @@ class _businessPageState extends State<businessPage> {
                         validator: (value) {
                           if(value!.isEmpty)
                           {
-                            return "Business Email is required";
+                            return "Customer Email is required";
                           }
                           else
                           {
@@ -191,7 +154,7 @@ class _businessPageState extends State<businessPage> {
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Business Email",
+                          hintText: "Enter Customer Email",
                           prefixIcon: const Icon(
                             Icons.email,
                           ),
@@ -213,7 +176,7 @@ class _businessPageState extends State<businessPage> {
                         validator: (value) {
                           if(value!.isEmpty)
                           {
-                            return "Business PhoneNumber is required";
+                            return "Customer PhoneNumber is required";
                           }
                           else
                           {
@@ -230,7 +193,7 @@ class _businessPageState extends State<businessPage> {
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Business Phone Number",
+                          hintText: "Enter Customer Phone Number",
                           prefixIcon: const Icon(
                             Icons.phone,
                           ),
@@ -252,7 +215,7 @@ class _businessPageState extends State<businessPage> {
                         validator: (value) {
                           if(value!.isEmpty)
                           {
-                            return "Business GST is required";
+                            return "Customer GST is required";
                           }
                           else
                           {
@@ -269,7 +232,7 @@ class _businessPageState extends State<businessPage> {
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Business GST",
+                          hintText: "Enter Customer GST",
                           prefixIcon: const Icon(
                             Icons.money,
                           ),
@@ -293,10 +256,6 @@ class _businessPageState extends State<businessPage> {
               onTap: () {
                 bool validated = formKey.currentState!.validate();
 
-                if(validated)
-                  {
-                    Navigator.of(context).pushNamed(MyRoute.customerPage);
-                  }
               },
               child: Container(
                 height: 50,

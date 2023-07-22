@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_generator/utils/routes_utils.dart';
 import 'package:invoice_generator/views/screens/businessPage.dart';
+import 'package:invoice_generator/views/screens/customerPage.dart';
 import 'package:invoice_generator/views/screens/homePage.dart';
 import 'package:invoice_generator/views/screens/splashScreen.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         MyRoute.homePage : (context) => const homePage(),
         MyRoute.splashScreen : (context) => const splashScreen(),
         MyRoute.businessPage : (context) => const businessPage(),
+        MyRoute.customerPage : (context) => const customerPage(),
       },
     );
   }
