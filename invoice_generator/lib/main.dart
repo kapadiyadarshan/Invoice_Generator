@@ -3,6 +3,8 @@ import 'package:invoice_generator/utils/routes_utils.dart';
 import 'package:invoice_generator/views/screens/businessPage.dart';
 import 'package:invoice_generator/views/screens/customerPage.dart';
 import 'package:invoice_generator/views/screens/homePage.dart';
+import 'package:invoice_generator/views/screens/itemPage.dart';
+import 'package:invoice_generator/views/screens/items.dart';
 import 'package:invoice_generator/views/screens/splashScreen.dart';
 
 void main()
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
         MyRoute.splashScreen : (context) => const splashScreen(),
         MyRoute.businessPage : (context) => const businessPage(),
         MyRoute.customerPage : (context) => const customerPage(),
+        MyRoute.items : (context) => const items(),
+        MyRoute.itemPage : (context) => const itemPage(),
       },
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:invoice_generator/Global/Global_class.dart';
 
 import '../../utils/color_utils.dart';
+import '../../utils/routes_utils.dart';
 import '../components/myBackButton.dart';
 
 class customerPage extends StatefulWidget {
@@ -290,6 +291,11 @@ class _customerPageState extends State<customerPage> {
             GestureDetector(
               onTap: () {
                 bool validated = formKey.currentState!.validate();
+
+                if(!validated)
+                {
+                  Navigator.of(context).pushNamed(MyRoute.items);
+                }
 
               },
               child: Container(

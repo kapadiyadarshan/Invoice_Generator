@@ -328,7 +328,7 @@ class _businessPageState extends State<businessPage> {
               onTap: () {
                 bool validated = formKey.currentState!.validate();
 
-                if(validated)
+                if(!validated)
                   {
                     Navigator.of(context).pushNamed(MyRoute.customerPage);
                   }

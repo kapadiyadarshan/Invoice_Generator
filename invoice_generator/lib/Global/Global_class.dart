@@ -15,4 +15,6 @@ class Global
   static String? cust_email;
   static String? cust_phone;
   static String? cust_gst;
+
+  static List<Map> allItems = [];
 }
