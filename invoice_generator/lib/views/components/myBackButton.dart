@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:invoice_generator/utils/color_utils.dart';
 
 class MyBackButton extends StatelessWidget {
   const MyBackButton({Key? key}) : super(key: key);
@@ -9,8 +10,10 @@ class MyBackButton extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).pop();
         },
-        icon: const Icon(
-            Icons.arrow_back_ios
-        ));
+        icon: Icon(
+            Icons.arrow_back_ios,
+          color: theme2,
+        ),
+    );
   }
 }

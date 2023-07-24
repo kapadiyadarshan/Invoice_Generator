@@ -91,6 +91,7 @@ class _businessPageState extends State<businessPage> {
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Name
                       TextFormField(
                         validator: (value) {
@@ -103,6 +104,7 @@ class _businessPageState extends State<businessPage> {
                               return null;
                             }
                         },
+                        initialValue: Global.busi_name,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.name,
@@ -126,10 +128,16 @@ class _businessPageState extends State<businessPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_name = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Address
                       TextFormField(
                         validator: (value) {
@@ -142,6 +150,7 @@ class _businessPageState extends State<businessPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.busi_address,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.streetAddress,
@@ -165,10 +174,16 @@ class _businessPageState extends State<businessPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_address = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Email
                       TextFormField(
                         validator: (value) {
@@ -181,6 +196,7 @@ class _businessPageState extends State<businessPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.busi_email,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.emailAddress,
@@ -204,10 +220,16 @@ class _businessPageState extends State<businessPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_email = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Phone
                       TextFormField(
                         validator: (value) {
@@ -220,6 +242,7 @@ class _businessPageState extends State<businessPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.busi_phone,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.phone,
@@ -243,10 +266,16 @@ class _businessPageState extends State<businessPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_phone = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //GST No.
                       TextFormField(
                         validator: (value) {
@@ -259,6 +288,7 @@ class _businessPageState extends State<businessPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.busi_gst,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.text,
@@ -282,6 +312,11 @@ class _businessPageState extends State<businessPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_gst = value;
+                          });
+                        },
                       ),
                     ],
                   ),

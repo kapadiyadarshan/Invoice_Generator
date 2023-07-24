@@ -40,17 +40,17 @@ class _splashScreenState extends State<splashScreen> {
             const Spacer(
               flex: 4,
             ),
-            Image.asset("assets/images/invoice(1).gif",scale: 1.5,),
+            Image.asset("assets/images/invoice (2).gif",scale: 1.5,),
             Text("Invoice Generator",
               style: TextStyle(
-                color: theme3,
+                color: theme2,
                 fontSize: 32,
                 fontWeight: FontWeight.bold
               ),),
             const Spacer(),
             SpinKitFadingCircle(
               size: 56,
-              color: theme3,
+              color: theme2,
             ),
             const Spacer(
               flex: 3,

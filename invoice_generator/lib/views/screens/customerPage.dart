@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:invoice_generator/Global/Global_class.dart';
 
 import '../../utils/color_utils.dart';
 import '../components/myBackButton.dart';
@@ -66,6 +67,7 @@ class _customerPageState extends State<customerPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.cust_name,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.name,
@@ -89,10 +91,16 @@ class _customerPageState extends State<customerPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_name = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Address
                       TextFormField(
                         validator: (value) {
@@ -105,6 +113,7 @@ class _customerPageState extends State<customerPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.cust_address,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.streetAddress,
@@ -128,10 +137,16 @@ class _customerPageState extends State<customerPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_address = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Email
                       TextFormField(
                         validator: (value) {
@@ -144,6 +159,7 @@ class _customerPageState extends State<customerPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.cust_email,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.emailAddress,
@@ -167,10 +183,16 @@ class _customerPageState extends State<customerPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_email = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //Phone
                       TextFormField(
                         validator: (value) {
@@ -183,6 +205,7 @@ class _customerPageState extends State<customerPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.cust_phone,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.phone,
@@ -206,10 +229,16 @@ class _customerPageState extends State<customerPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_phone = value;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
                       //GST No.
                       TextFormField(
                         validator: (value) {
@@ -222,6 +251,7 @@ class _customerPageState extends State<customerPage> {
                             return null;
                           }
                         },
+                        initialValue: Global.cust_gst,
                         showCursor: true,
                         cursorColor: theme2,
                         keyboardType: TextInputType.text,
@@ -245,6 +275,11 @@ class _customerPageState extends State<customerPage> {
                             ),
                           ),
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_gst = value;
+                          });
+                        },
                       ),
                     ],
                   ),
