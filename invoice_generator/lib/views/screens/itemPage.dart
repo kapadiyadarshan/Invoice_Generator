@@ -21,7 +21,11 @@ class _itemPageState extends State<itemPage> {
     "name" : "",
     "price" : 0,
     "qty" : 0,
-    "gst" : 0
+    "gst" : 0,
+    "gst_value" : 0,
+    "Sgst" : 0,
+    "Cgst" : 0,
+    "total" : 0,
   };
 
   @override
@@ -133,7 +137,7 @@ class _itemPageState extends State<itemPage> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        item["price"] = value;
+                        item["price"] = double.parse(value);
                       });
                     },
                   ),
@@ -164,7 +168,7 @@ class _itemPageState extends State<itemPage> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        item["qty"] = value;
+                        item["qty"] = double.parse(value);
                       });
                     },
                   ),
@@ -176,7 +180,7 @@ class _itemPageState extends State<itemPage> {
                     // initialValue: Global.cust_name,
                     showCursor: true,
                     cursorColor: theme2,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
                       isDense: true,
@@ -195,7 +199,7 @@ class _itemPageState extends State<itemPage> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        item["gst"] = value;
+                        item["gst"] = int.parse(value);
                       });
                     },
                   ),
@@ -234,11 +238,11 @@ class _itemPageState extends State<itemPage> {
                   //   child: Row(
                   //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   //     children: [
-                  //       RadioListTile(
-                  //         title: Text("5%",
-                  //         style: TextStyle(
-                  //           fontSize: 18
-                  //         ),),
+                  //       Radio(
+                  //         // title: Text("5%",
+                  //         // style: TextStyle(
+                  //         //   fontSize: 18
+                  //         // ),),
                   //         value: "5",
                   //         groupValue: per_GST,
                   //         onChanged: (value) {
@@ -256,12 +260,16 @@ class _itemPageState extends State<itemPage> {
             const Spacer(),
             GestureDetector(
               onTap: () {
-
-                Navigator.of(context).pushNamed(MyRoute.items);
+                item["gst_value"] = ((item["price"] * item["qty"] )* item["gst"])/100;
+                item["Sgst"] = item["gst_value"]/2;
+                item["Cgst"] = item["gst_value"]/2;
+                item["total"] = (item["price"] * item["qty"])+ item["gst_value"];
 
                 Global.allItems.add(item);
 
                 print(Global.allItems);
+
+                Navigator.of(context).pushNamed(MyRoute.items);
               },
               child: Container(
                 height: 50,

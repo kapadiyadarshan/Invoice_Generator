@@ -23,14 +23,21 @@ class _itemsState extends State<items> {
               color: theme2
           ),),
         centerTitle: true,
-        leading: const MyBackButton(),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(MyRoute.customerPage, (route) => false);
+        },
+            icon: Icon(Icons.arrow_back_ios,
+            color: theme2,
+            ),
+        ),
         foregroundColor: theme2,
         actions: [
           IconButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(MyRoute.itemPage);
               },
-              icon: Icon(Icons.add)
+              icon: const Icon(Icons.add)
           )
         ],
       ),
@@ -104,7 +111,10 @@ class _itemsState extends State<items> {
             Spacer(),
             GestureDetector(
               onTap: () {
+                setState(() {
 
+                  Navigator.of(context).pushNamed(MyRoute.PDFpage);
+                });
               },
               child: Container(
                 height: 50,

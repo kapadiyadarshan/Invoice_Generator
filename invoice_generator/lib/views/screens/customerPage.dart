@@ -148,32 +148,32 @@ class _customerPageState extends State<customerPage> {
                         height: 12,
                       ),
 
-                      //Email
+                      //CITY
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
                           {
-                            return "Customer Email is required";
+                            return "City is required";
                           }
                           else
                           {
                             return null;
                           }
                         },
-                        initialValue: Global.cust_email,
+                        initialValue: Global.cust_city,
                         showCursor: true,
                         cursorColor: theme2,
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.streetAddress,
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           isDense: true,
-                          labelText: "Email",
+                          labelText: "City",
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Customer Email",
+                          hintText: "Enter Business City",
                           prefixIcon: const Icon(
-                            Icons.email,
+                            Icons.location_on,
                           ),
                           prefixIconColor: theme2,
                           border: const OutlineInputBorder(),
@@ -186,13 +186,151 @@ class _customerPageState extends State<customerPage> {
                         ),
                         onChanged: (value) {
                           setState(() {
-                            Global.cust_email = value;
+                            Global.cust_city = value;
                           });
                         },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
+                      //State
+                      TextFormField(
+                        validator: (value) {
+                          if(value!.isEmpty)
+                          {
+                            return "State is required";
+                          }
+                          else
+                          {
+                            return null;
+                          }
+                        },
+                        initialValue: Global.cust_state,
+                        showCursor: true,
+                        cursorColor: theme2,
+                        keyboardType: TextInputType.streetAddress,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: "State",
+                          labelStyle: TextStyle(
+                              color: theme2
+                          ),
+                          hintText: "Enter Business State",
+                          prefixIcon: const Icon(
+                            Icons.location_on,
+                          ),
+                          prefixIconColor: theme2,
+                          border: const OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: theme2,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_state = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+
+                      //PIn code
+                      TextFormField(
+                        validator: (value) {
+                          if(value!.isEmpty)
+                          {
+                            return "PinCode is required";
+                          }
+                          else
+                          {
+                            return null;
+                          }
+                        },
+                        initialValue: Global.cust_pin,
+                        showCursor: true,
+                        cursorColor: theme2,
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: "PinCode",
+                          labelStyle: TextStyle(
+                              color: theme2
+                          ),
+                          hintText: "Enter City PinCode",
+                          prefixIcon: const Icon(
+                            Icons.pin,
+                          ),
+                          prefixIconColor: theme2,
+                          border: const OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: theme2,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.cust_pin = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+
+                      //Email
+                      // TextFormField(
+                      //   validator: (value) {
+                      //     if(value!.isEmpty)
+                      //     {
+                      //       return "Customer Email is required";
+                      //     }
+                      //     else
+                      //     {
+                      //       return null;
+                      //     }
+                      //   },
+                      //   initialValue: Global.cust_email,
+                      //   showCursor: true,
+                      //   cursorColor: theme2,
+                      //   keyboardType: TextInputType.emailAddress,
+                      //   textInputAction: TextInputAction.next,
+                      //   decoration: InputDecoration(
+                      //     isDense: true,
+                      //     labelText: "Email",
+                      //     labelStyle: TextStyle(
+                      //         color: theme2
+                      //     ),
+                      //     hintText: "Enter Customer Email",
+                      //     prefixIcon: const Icon(
+                      //       Icons.email,
+                      //     ),
+                      //     prefixIconColor: theme2,
+                      //     border: const OutlineInputBorder(),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(
+                      //         color: theme2,
+                      //         width: 2,
+                      //       ),
+                      //     ),
+                      //   ),
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       Global.cust_email = value;
+                      //     });
+                      //   },
+                      // ),
+                      // const SizedBox(
+                      //   height: 12,
+                      // ),
 
                       //Phone
                       TextFormField(
@@ -292,7 +430,7 @@ class _customerPageState extends State<customerPage> {
               onTap: () {
                 bool validated = formKey.currentState!.validate();
 
-                if(!validated)
+                if(validated)
                 {
                   Navigator.of(context).pushNamed(MyRoute.items);
                 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:invoice_generator/utils/routes_utils.dart';
+import 'package:invoice_generator/views/screens/PDFpage.dart';
 import 'package:invoice_generator/views/screens/businessPage.dart';
 import 'package:invoice_generator/views/screens/customerPage.dart';
 import 'package:invoice_generator/views/screens/homePage.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         MyRoute.customerPage : (context) => const customerPage(),
         MyRoute.items : (context) => const items(),
         MyRoute.itemPage : (context) => const itemPage(),
+        MyRoute.PDFpage : (context) => const PDFpage(),
       },
     );
   }

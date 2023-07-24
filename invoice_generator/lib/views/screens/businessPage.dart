@@ -31,7 +31,7 @@ class _businessPageState extends State<businessPage> {
         centerTitle: true,
         leading: const MyBackButton(),
       ),
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
@@ -184,32 +184,32 @@ class _businessPageState extends State<businessPage> {
                         height: 12,
                       ),
 
-                      //Email
+                      //CITY
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
                           {
-                            return "Business Email is required";
+                            return "City is required";
                           }
                           else
                           {
                             return null;
                           }
                         },
-                        initialValue: Global.busi_email,
+                        initialValue: Global.busi_city,
                         showCursor: true,
                         cursorColor: theme2,
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.streetAddress,
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           isDense: true,
-                          labelText: "Email",
+                          labelText: "City",
                           labelStyle: TextStyle(
                               color: theme2
                           ),
-                          hintText: "Enter Business Email",
+                          hintText: "Enter Business City",
                           prefixIcon: const Icon(
-                            Icons.email,
+                            Icons.location_on,
                           ),
                           prefixIconColor: theme2,
                           border: const OutlineInputBorder(),
@@ -222,13 +222,151 @@ class _businessPageState extends State<businessPage> {
                         ),
                         onChanged: (value) {
                           setState(() {
-                            Global.busi_email = value;
+                            Global.busi_city = value;
                           });
                         },
                       ),
                       const SizedBox(
                         height: 12,
                       ),
+
+                      //State
+                      TextFormField(
+                        validator: (value) {
+                          if(value!.isEmpty)
+                          {
+                            return "State is required";
+                          }
+                          else
+                          {
+                            return null;
+                          }
+                        },
+                        initialValue: Global.busi_state,
+                        showCursor: true,
+                        cursorColor: theme2,
+                        keyboardType: TextInputType.streetAddress,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: "State",
+                          labelStyle: TextStyle(
+                              color: theme2
+                          ),
+                          hintText: "Enter Business State",
+                          prefixIcon: const Icon(
+                            Icons.location_on,
+                          ),
+                          prefixIconColor: theme2,
+                          border: const OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: theme2,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_state = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+
+                      //PIn code
+                      TextFormField(
+                        validator: (value) {
+                          if(value!.isEmpty)
+                          {
+                            return "PinCode is required";
+                          }
+                          else
+                          {
+                            return null;
+                          }
+                        },
+                        initialValue: Global.busi_pin,
+                        showCursor: true,
+                        cursorColor: theme2,
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: "PinCode",
+                          labelStyle: TextStyle(
+                              color: theme2
+                          ),
+                          hintText: "Enter City PinCode",
+                          prefixIcon: const Icon(
+                            Icons.pin,
+                          ),
+                          prefixIconColor: theme2,
+                          border: const OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: theme2,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            Global.busi_pin = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      //
+                      // //Email
+                      // TextFormField(
+                      //   validator: (value) {
+                      //     if(value!.isEmpty)
+                      //     {
+                      //       return "Business Email is required";
+                      //     }
+                      //     else
+                      //     {
+                      //       return null;
+                      //     }
+                      //   },
+                      //   initialValue: Global.busi_email,
+                      //   showCursor: true,
+                      //   cursorColor: theme2,
+                      //   keyboardType: TextInputType.emailAddress,
+                      //   textInputAction: TextInputAction.next,
+                      //   decoration: InputDecoration(
+                      //     isDense: true,
+                      //     labelText: "Email",
+                      //     labelStyle: TextStyle(
+                      //         color: theme2
+                      //     ),
+                      //     hintText: "Enter Business Email",
+                      //     prefixIcon: const Icon(
+                      //       Icons.email,
+                      //     ),
+                      //     prefixIconColor: theme2,
+                      //     border: const OutlineInputBorder(),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(
+                      //         color: theme2,
+                      //         width: 2,
+                      //       ),
+                      //     ),
+                      //   ),
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       Global.busi_email = value;
+                      //     });
+                      //   },
+                      // ),
+                      // const SizedBox(
+                      //   height: 12,
+                      // ),
 
                       //Phone
                       TextFormField(
@@ -328,7 +466,7 @@ class _businessPageState extends State<businessPage> {
               onTap: () {
                 bool validated = formKey.currentState!.validate();
 
-                if(!validated)
+                if(validated)
                   {
                     Navigator.of(context).pushNamed(MyRoute.customerPage);
                   }
