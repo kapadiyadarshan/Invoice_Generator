@@ -39,120 +39,68 @@ class _itemsState extends State<items> {
 
         child: Column(
           children: [
-            // SizedBox(
-            //   height: 710,
-            //   child: SingleChildScrollView(
-            //     child: Column(
-            //       children: [
-            //         //Item Container
-            //         Container(
-            //           width: double.infinity,
-            //           padding: const EdgeInsets.all(12),
-            //           margin: const EdgeInsets.symmetric(vertical: 6),
-            //           decoration: BoxDecoration(
-            //               color: theme3,
-            //               border: Border.all(
-            //                   width: 2,
-            //                   color: theme1
-            //               ),
-            //               boxShadow: [
-            //                 BoxShadow(
-            //                     color: theme1,
-            //                     offset: const Offset(5, 5)
-            //                 )
-            //               ]
-            //           ),
-            //           // child: Text("Name : ${Global.allItems[0]["name"]}")
-            //           child: Column(
-            //             children: [
-            //               Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //                 children: [
-            //                   Text(Global.allItems[0]["name"],
-            //                   style: const TextStyle(
-            //                     fontSize: 18,
-            //                     fontWeight: FontWeight.bold
-            //                   ),),
-            //                   Text("₹ ${Global.allItems[0]["price"]}",
-            //                     style: const TextStyle(
-            //                         fontSize: 14,
-            //                         // fontWeight: FontWeight.w600
-            //                     ),),
-            //                 ],
-            //               ),
-            //               Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //                 children: [
-            //                   Text("GST : ${Global.allItems[0]["gst"]}%",
-            //                     style: const TextStyle(
-            //                         fontSize: 14,
-            //                     ),),
-            //                   Text("Qty : ${Global.allItems[0]["qty"]}",
-            //                     style: const TextStyle(
-            //                       fontSize: 14,
-            //                       // fontWeight: FontWeight.w600
-            //                     ),),
-            //                 ],
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         Container(
-            //           width: double.infinity,
-            //           padding: const EdgeInsets.all(12),
-            //           margin: const EdgeInsets.symmetric(vertical: 6),
-            //           decoration: BoxDecoration(
-            //               color: theme3,
-            //               border: Border.all(
-            //                   width: 2,
-            //                   color: theme1
-            //               ),
-            //               boxShadow: [
-            //                 BoxShadow(
-            //                     color: theme1,
-            //                     offset: const Offset(5, 5)
-            //                 )
-            //               ]
-            //           ),
-            //           // child: Text("Name : ${Global.allItems[0]["name"]}")
-            //           child: Column(
-            //             children: [
-            //               Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //                 children: [
-            //                   Text(Global.allItems[1]["name"],
-            //                     style: const TextStyle(
-            //                         fontSize: 18,
-            //                         fontWeight: FontWeight.bold
-            //                     ),),
-            //                   Text("₹ ${Global.allItems[1]["price"]}",
-            //                     style: const TextStyle(
-            //                       fontSize: 14,
-            //                       // fontWeight: FontWeight.w600
-            //                     ),),
-            //                 ],
-            //               ),
-            //               Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //                 children: [
-            //                   Text("GST : ${Global.allItems[1]["gst"]}%",
-            //                     style: const TextStyle(
-            //                       fontSize: 14,
-            //                     ),),
-            //                   Text("Qty : ${Global.allItems[1]["qty"]}",
-            //                     style: const TextStyle(
-            //                       fontSize: 14,
-            //                       // fontWeight: FontWeight.w600
-            //                     ),),
-            //                 ],
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            SizedBox(
+              height: 710,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: List.generate(
+                    Global.allItems.length, (index) =>
+                      Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(12),
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    decoration: BoxDecoration(
+                        color: theme3,
+                        border: Border.all(
+                            width: 2,
+                            color: theme1
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: theme1,
+                              offset: const Offset(5, 5)
+                          )
+                        ]
+                    ),
+                    // child: Text("Name : ${Global.allItems[0]["name"]}")
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(Global.allItems[index]["name"],
+                              style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold
+                              ),),
+                            Text("₹ ${Global.allItems[index]["price"]}",
+                              style: const TextStyle(
+                                fontSize: 14,
+                                // fontWeight: FontWeight.w600
+                              ),),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("GST : ${Global.allItems[index]["gst"]}%",
+                              style: const TextStyle(
+                                fontSize: 14,
+                              ),),
+                            Text("Qty : ${Global.allItems[index]["qty"]}",
+                              style: const TextStyle(
+                                fontSize: 14,
+                                // fontWeight: FontWeight.w600
+                              ),),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  ),
+                ),
+              ),
+            ),
             Spacer(),
             GestureDetector(
               onTap: () {
