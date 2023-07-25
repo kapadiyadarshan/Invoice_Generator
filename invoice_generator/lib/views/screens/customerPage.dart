@@ -286,58 +286,16 @@ class _customerPageState extends State<customerPage> {
                         height: 12,
                       ),
 
-                      //Email
-                      // TextFormField(
-                      //   validator: (value) {
-                      //     if(value!.isEmpty)
-                      //     {
-                      //       return "Customer Email is required";
-                      //     }
-                      //     else
-                      //     {
-                      //       return null;
-                      //     }
-                      //   },
-                      //   initialValue: Global.cust_email,
-                      //   showCursor: true,
-                      //   cursorColor: theme2,
-                      //   keyboardType: TextInputType.emailAddress,
-                      //   textInputAction: TextInputAction.next,
-                      //   decoration: InputDecoration(
-                      //     isDense: true,
-                      //     labelText: "Email",
-                      //     labelStyle: TextStyle(
-                      //         color: theme2
-                      //     ),
-                      //     hintText: "Enter Customer Email",
-                      //     prefixIcon: const Icon(
-                      //       Icons.email,
-                      //     ),
-                      //     prefixIconColor: theme2,
-                      //     border: const OutlineInputBorder(),
-                      //     focusedBorder: OutlineInputBorder(
-                      //       borderSide: BorderSide(
-                      //         color: theme2,
-                      //         width: 2,
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   onChanged: (value) {
-                      //     setState(() {
-                      //       Global.cust_email = value;
-                      //     });
-                      //   },
-                      // ),
-                      // const SizedBox(
-                      //   height: 12,
-                      // ),
-
                       //Phone
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
                           {
                             return "Customer PhoneNumber is required";
+                          }
+                          else if(value.length < 10 || value.length > 10)
+                          {
+                            return "Phone Number Must Be Of 10 Digits...";
                           }
                           else
                           {

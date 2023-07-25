@@ -318,7 +318,8 @@ class _PDFpageState extends State<PDFpage> {
                           width: 70,
                           padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.center,
-                          child: pw.Text("${Global.allItems[index]["Sgst"]}\n(${Global.allItems[index]["gst"]/2}%)")
+                          child: pw.Text("${Global.allItems[index]["Sgst"]}\n(${Global.allItems[index]["gst"]/2}%)",
+                          textAlign: pw.TextAlign.center)
                       ),
                       pw.Spacer(),
                       //CGST
@@ -326,7 +327,8 @@ class _PDFpageState extends State<PDFpage> {
                           width: 70,
                           padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.center,
-                          child: pw.Text("${Global.allItems[index]["Cgst"]}\n(${Global.allItems[index]["gst"]/2}%)")
+                          child: pw.Text("${Global.allItems[index]["Cgst"]}\n(${Global.allItems[index]["gst"]/2}%)",
+                              textAlign: pw.TextAlign.center)
                       ),
                       pw.Spacer(),
                       //Amount

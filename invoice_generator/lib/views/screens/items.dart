@@ -48,7 +48,8 @@ class _itemsState extends State<items> {
 
         child: Column(
           children: [
-            SizedBox(
+            Spacer(),
+            (Global.allItems.isNotEmpty) ? SizedBox(
               height: 710,
               child: SingleChildScrollView(
                 child: Column(
@@ -108,7 +109,19 @@ class _itemsState extends State<items> {
                   ),
                   ),
                 ),
-              ),
+              )
+            )
+                : Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/empty.png",scale: 8,),
+                Text("Please tap on the button bellow to\nAdd an item.",
+                textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey
+                  ),
+                ),
+              ],
             ),
             Spacer(),
             GestureDetector(

@@ -73,7 +73,7 @@ class _itemPageState extends State<itemPage> {
                       color: theme2
                     ),
                     // alignment: Alignment.center,
-                    child: Text("Item 1",
+                    child: Text("Item Details",
                     style: TextStyle(
                       color: theme3,
                       fontSize: 18,

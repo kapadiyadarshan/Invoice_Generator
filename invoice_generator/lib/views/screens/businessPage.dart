@@ -318,52 +318,6 @@ class _businessPageState extends State<businessPage> {
                       const SizedBox(
                         height: 12,
                       ),
-                      //
-                      // //Email
-                      // TextFormField(
-                      //   validator: (value) {
-                      //     if(value!.isEmpty)
-                      //     {
-                      //       return "Business Email is required";
-                      //     }
-                      //     else
-                      //     {
-                      //       return null;
-                      //     }
-                      //   },
-                      //   initialValue: Global.busi_email,
-                      //   showCursor: true,
-                      //   cursorColor: theme2,
-                      //   keyboardType: TextInputType.emailAddress,
-                      //   textInputAction: TextInputAction.next,
-                      //   decoration: InputDecoration(
-                      //     isDense: true,
-                      //     labelText: "Email",
-                      //     labelStyle: TextStyle(
-                      //         color: theme2
-                      //     ),
-                      //     hintText: "Enter Business Email",
-                      //     prefixIcon: const Icon(
-                      //       Icons.email,
-                      //     ),
-                      //     prefixIconColor: theme2,
-                      //     border: const OutlineInputBorder(),
-                      //     focusedBorder: OutlineInputBorder(
-                      //       borderSide: BorderSide(
-                      //         color: theme2,
-                      //         width: 2,
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   onChanged: (value) {
-                      //     setState(() {
-                      //       Global.busi_email = value;
-                      //     });
-                      //   },
-                      // ),
-                      // const SizedBox(
-                      //   height: 12,
-                      // ),
 
                       //Phone
                       TextFormField(
@@ -371,6 +325,10 @@ class _businessPageState extends State<businessPage> {
                           if(value!.isEmpty)
                           {
                             return "Business PhoneNumber is required";
+                          }
+                          else if(value.length < 10 || value.length > 10)
+                          {
+                            return "Phone Number Must Be Of 10 Digits...";
                           }
                           else
                           {
@@ -466,10 +424,7 @@ class _businessPageState extends State<businessPage> {
               onTap: () {
                 bool validated = formKey.currentState!.validate();
 
-                if(validated)
-                  {
-                    Navigator.of(context).pushNamed(MyRoute.customerPage);
-                  }
+                (validated) ? Navigator.of(context).pushNamed(MyRoute.customerPage) : null;
               },
               child: Container(
                 height: 50,
@@ -480,7 +435,7 @@ class _businessPageState extends State<businessPage> {
                       BoxShadow(
                         color: theme2,
                         offset: const Offset(3, 3),
-                      )
+                      ),
                     ]
                 ),
                 alignment: Alignment.center,
