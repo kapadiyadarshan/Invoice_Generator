@@ -382,7 +382,7 @@ class _PDFpageState extends State<PDFpage> {
                                     )
                                 ),
                                 pw.TextSpan(
-                                  text: "${Global.finalGST/2}",
+                                  text: "${(Global.finalGST/2).toString().split('.')[0]}.${(Global.finalGST/2).toString().split('.')[1].substring(0,1)}",
                                 ),
                               ]
                           )
@@ -400,7 +400,7 @@ class _PDFpageState extends State<PDFpage> {
                                     )
                                 ),
                                 pw.TextSpan(
-                                  text: "${Global.finalGST/2}",
+                                  text: "${(Global.finalGST/2).toString().split('.')[0]}.${(Global.finalGST/2).toString().split('.')[1].substring(0,1)}",
                                 ),
                               ]
                           )
@@ -418,7 +418,7 @@ class _PDFpageState extends State<PDFpage> {
                                     )
                                 ),
                                 pw.TextSpan(
-                                  text: "${Global.finalTotal}",
+                                  text: "${Global.finalTotal.toString().split('.')[0]}.${Global.finalTotal.toString().split('.')[1].substring(0,1)}",
                                 ),
                               ]
                           )
