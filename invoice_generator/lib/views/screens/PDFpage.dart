@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:invoice_generator/views/components/myBackButton.dart';
 import 'package:pdf/pdf.dart';
@@ -62,6 +64,19 @@ class _PDFpageState extends State<PDFpage> {
                         ]
                     )
                 ),
+                pw.Spacer(),
+                // pw.Container(
+                //   height: 100,
+                //   width: 120,
+                //
+                //   decoration: pw.BoxDecoration(
+                //     image: pw.DecorationImage(
+                //         image: pw.MemoryImage(
+                //           File(Global.image!.path).readAsBytesSync(),
+                //         )
+                //     )
+                //   )
+                // ),
                 pw.Spacer(),
                 pw.Container(
                     height: 100,
@@ -194,56 +209,79 @@ class _PDFpageState extends State<PDFpage> {
                   children: [
                     //Item name
                     pw.Container(
-                      // width: 160/4072/4630,
                         width: 160,
-                        padding: pw.EdgeInsets.all(4),
+                        padding: const pw.EdgeInsets.all(4),
                         color: PdfColors.grey400,
-                        child: pw.Text("Item Name")
+                        child: pw.Text("Item Name",
+                        style: pw.TextStyle(
+                          fontSize: 14,
+                          fontWeight: pw.FontWeight.bold
+                        ))
                     ),
                     pw.Spacer(),
                     //Qty
                     pw.Container(
-                        width: 60,
-                        padding: pw.EdgeInsets.all(4),
+                        width: 70,
+                        padding: const pw.EdgeInsets.all(4),
                         alignment: pw.Alignment.center,
                         color: PdfColors.grey400,
-                        child: pw.Text("Quantity")
+                        child: pw.Text("Quantity",
+                            style: pw.TextStyle(
+                                fontSize: 14,
+                                fontWeight: pw.FontWeight.bold
+                            ))
                     ),
                     pw.Spacer(),
                     //Rate
                     pw.Container(
                         width: 40,
-                        padding: pw.EdgeInsets.all(4),
+                        padding: const pw.EdgeInsets.all(4),
                         color: PdfColors.grey400,
                         alignment: pw.Alignment.center,
-                        child: pw.Text("Rate")
+                        child: pw.Text("Rate",
+                            style: pw.TextStyle(
+                                fontSize: 14,
+                                fontWeight: pw.FontWeight.bold
+                            ))
                     ),
                     pw.Spacer(),
                     //sgst
                     pw.Container(
                         width: 70,
-                        padding: pw.EdgeInsets.all(4),
+                        padding: const pw.EdgeInsets.all(4),
                         color: PdfColors.grey400,
                         alignment: pw.Alignment.center,
-                        child: pw.Text("SGST")
+                        child: pw.Text("SGST",
+                            style: pw.TextStyle(
+                                fontSize: 14,
+                                fontWeight: pw.FontWeight.bold
+                            ))
                     ),
                     pw.Spacer(),
                     //CGST
                     pw.Container(
                         width: 70,
-                        padding: pw.EdgeInsets.all(4),
+                        padding: const pw.EdgeInsets.all(4),
                         color: PdfColors.grey400,
                         alignment: pw.Alignment.center,
-                        child: pw.Text("CGST")
+                        child: pw.Text("CGST",
+                            style: pw.TextStyle(
+                                fontSize: 14,
+                                fontWeight: pw.FontWeight.bold
+                            ))
                     ),
                     pw.Spacer(),
                     //Amount
                     pw.Container(
-                        width: 60,
-                        padding: pw.EdgeInsets.all(4),
+                        width: 70,
+                        padding: const pw.EdgeInsets.all(4),
                         alignment: pw.Alignment.centerRight,
                         color: PdfColors.grey400,
-                        child: pw.Text("Amount")
+                        child: pw.Text("Amount",
+                            style: pw.TextStyle(
+                                fontSize: 14,
+                                fontWeight: pw.FontWeight.bold
+                            ))
                     ),
                   ]
               ),
@@ -254,16 +292,15 @@ class _PDFpageState extends State<PDFpage> {
                     children: [
                       //Item name
                       pw.Container(
-                        // width: 160/4072/4630,
                           width: 160,
-                          padding: pw.EdgeInsets.all(4),
+                          padding: const pw.EdgeInsets.all(4),
                           child: pw.Text("${Global.allItems[index]["name"]}")
                       ),
                       pw.Spacer(),
                       //Qty
                       pw.Container(
-                          width: 60,
-                          padding: pw.EdgeInsets.all(4),
+                          width: 70,
+                          padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.center,
                           child: pw.Text("${Global.allItems[index]["qty"]}")
                       ),
@@ -271,7 +308,7 @@ class _PDFpageState extends State<PDFpage> {
                       //Rate
                       pw.Container(
                           width: 40,
-                          padding: pw.EdgeInsets.all(4),
+                          padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.center,
                           child: pw.Text("${Global.allItems[index]["price"]}")
                       ),
@@ -279,7 +316,7 @@ class _PDFpageState extends State<PDFpage> {
                       //sgst
                       pw.Container(
                           width: 70,
-                          padding: pw.EdgeInsets.all(4),
+                          padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.center,
                           child: pw.Text("${Global.allItems[index]["Sgst"]}\n(${Global.allItems[index]["gst"]/2}%)")
                       ),
@@ -287,39 +324,118 @@ class _PDFpageState extends State<PDFpage> {
                       //CGST
                       pw.Container(
                           width: 70,
-                          padding: pw.EdgeInsets.all(4),
+                          padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.center,
                           child: pw.Text("${Global.allItems[index]["Cgst"]}\n(${Global.allItems[index]["gst"]/2}%)")
                       ),
                       pw.Spacer(),
                       //Amount
                       pw.Container(
-                          width: 60,
-                          padding: pw.EdgeInsets.all(4),
+                          width: 70,
+                          padding: const pw.EdgeInsets.all(4),
                           alignment: pw.Alignment.centerRight,
-                          child: pw.Text("${Global.allItems[index]["total"]}")
+                          child: pw.Text("${Global.allItems[index]["sub_total"]}")
                       ),
                     ]
                 ),
-                pw.Divider()
+                pw.Divider(
+                  color: PdfColors.grey400
+                )
               ],
             ),
             ),
             pw.Row(
               children: [
-                pw.SizedBox(
-                  width: 300
-                ),
-                pw.Text("Total ${Global.finalTotal}")
+                pw.Spacer(),
+                pw.Container(
+                  padding: const pw.EdgeInsets.all(4),
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.end,
+                    children: [
+                      pw.RichText(
+                          text: pw.TextSpan(
+                              children: [
+                                pw.TextSpan(
+                                    text: "Sub Total  ",
+                                    style: pw.TextStyle(
+                                        fontWeight: pw.FontWeight.bold,
+                                    )
+                                ),
+                                pw.TextSpan(
+                                    text: "${Global.subTotal}",
+                                ),
+                              ]
+                          )
+                      ),
+                      pw.SizedBox(
+                        height: 5
+                      ),
+                      pw.RichText(
+                          text: pw.TextSpan(
+                              children: [
+                                pw.TextSpan(
+                                    text: "CGST     ",
+                                    style: pw.TextStyle(
+                                      fontWeight: pw.FontWeight.bold,
+                                    )
+                                ),
+                                pw.TextSpan(
+                                  text: "${Global.finalGST/2}",
+                                ),
+                              ]
+                          )
+                      ),
+                      pw.SizedBox(
+                          height: 5
+                      ),
+                      pw.RichText(
+                          text: pw.TextSpan(
+                              children: [
+                                pw.TextSpan(
+                                    text: "SGST     ",
+                                    style: pw.TextStyle(
+                                      fontWeight: pw.FontWeight.bold,
+                                    )
+                                ),
+                                pw.TextSpan(
+                                  text: "${Global.finalGST/2}",
+                                ),
+                              ]
+                          )
+                      ),
+                      pw.SizedBox(
+                          height: 5
+                      ),
+                      pw.RichText(
+                          text: pw.TextSpan(
+                              children: [
+                                pw.TextSpan(
+                                    text: "Total    ",
+                                    style: pw.TextStyle(
+                                      fontWeight: pw.FontWeight.bold,
+                                    )
+                                ),
+                                pw.TextSpan(
+                                  text: "${Global.finalTotal}",
+                                ),
+                              ]
+                          )
+                      ),
+                    ]
+                  )
+                )
               ]
             ),
-            pw.Row(
-                children: [
-                  pw.SizedBox(
-                      width: 300
-                  ),
-                  pw.Text("Total ${Global.finalGST}")
-                ]
+            pw.Divider(
+              thickness: 2,
+              color: PdfColors.grey400
+            ),
+            pw.Text(
+              "THANK YOU"
+            ),
+            pw.Divider(
+                thickness: 2,
+              color: PdfColors.grey400
             ),
           ]
         )
@@ -334,6 +450,11 @@ class _PDFpageState extends State<PDFpage> {
 
     Global.finalGST = 0;
     Global.finalTotal = 0;
+    Global.subTotal = 0;
+
+    List.generate(Global.allItems.length, (index) {
+      Global.subTotal = (Global.subTotal + Global.allItems[index]["sub_total"])as double;
+    });
 
     List.generate(Global.allItems.length, (index) {
       Global.finalTotal = (Global.finalTotal + Global.allItems[index]["total"])as double;

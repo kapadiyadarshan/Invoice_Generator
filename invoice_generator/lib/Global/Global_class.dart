@@ -24,6 +24,7 @@ class Global
 
   static List<Map> allItems = [];
 
+  static double subTotal = 0;
   static double finalTotal = 0;
   static double finalGST = 0;
 }

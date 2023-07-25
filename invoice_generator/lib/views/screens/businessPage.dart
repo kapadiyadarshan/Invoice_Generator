@@ -31,12 +31,13 @@ class _businessPageState extends State<businessPage> {
         centerTitle: true,
         leading: const MyBackButton(),
       ),
-      // resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             Container(
+              height: 700,
               width: double.infinity,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -74,19 +75,15 @@ class _businessPageState extends State<businessPage> {
                             });
                           }
                         },
-                        child: Container(
-                          height: 160,
-                          width: 160,
-
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                          ),
-                          alignment: Alignment.center,
-                          child: const Text("Add Logo",
+                        child: CircleAvatar(
+                          radius: 100,
+                          foregroundImage: (Global.image != null) ? FileImage(Global.image!) : null,
+                          child: Text("Add Logo",
                           style: TextStyle(
-                            color: Colors.grey
-                          ),),
-                        ),
+                            color: theme2
+                          ),
+                          ),
+                        )
                       ),
                       const SizedBox(
                         height: 12,
@@ -461,7 +458,10 @@ class _businessPageState extends State<businessPage> {
                 ),
               ),
             ),
-            const Spacer(),
+            // const Spacer(),
+            const SizedBox(
+              height: 22,
+            ),
             GestureDetector(
               onTap: () {
                 bool validated = formKey.currentState!.validate();

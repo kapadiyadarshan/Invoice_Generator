@@ -33,11 +33,13 @@ class _itemsState extends State<items> {
         ),
         foregroundColor: theme2,
         actions: [
-          IconButton(
+          TextButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(MyRoute.itemPage);
+                setState(() {
+                  Navigator.of(context).pushNamed(MyRoute.PDFpage);
+                });
               },
-              icon: const Icon(Icons.add)
+              child: const Text("Create PDF")
           )
         ],
       ),
@@ -112,8 +114,7 @@ class _itemsState extends State<items> {
             GestureDetector(
               onTap: () {
                 setState(() {
-
-                  Navigator.of(context).pushNamed(MyRoute.PDFpage);
+                  Navigator.of(context).pushNamed(MyRoute.itemPage);
                 });
               },
               child: Container(
@@ -129,7 +130,7 @@ class _itemsState extends State<items> {
                     ]
                 ),
                 alignment: Alignment.center,
-                child: Text('Create PDF',
+                child: Text('Add Item',
                   style: TextStyle(
                       color: theme2,
                       fontSize: 20,

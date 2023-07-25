@@ -22,6 +22,7 @@ class _itemPageState extends State<itemPage> {
     "price" : 0,
     "qty" : 0,
     "gst" : 0,
+    "sub_total" : 0,
     "gst_value" : 0,
     "Sgst" : 0,
     "Cgst" : 0,
@@ -203,63 +204,13 @@ class _itemPageState extends State<itemPage> {
                       });
                     },
                   ),
-                  // Container(
-                  //   height: 60,
-                  //   width: double.infinity,
-                  //   padding: EdgeInsets.all(12),
-                  //
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Text("Include GST",
-                  //       style: TextStyle(
-                  //         color: theme2,
-                  //         fontSize: 18
-                  //       ),),
-                  //       Switch(
-                  //         activeColor: theme2,
-                  //         activeTrackColor: theme1,
-                  //         value: switchValue,
-                  //         onChanged: (value) {
-                  //           setState(() {
-                  //             switchValue = value;
-                  //           }
-                  //           );
-                  //         },
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  // Container(
-                  //   height: 60,
-                  //   width: double.infinity,
-                  //   padding: EdgeInsets.all(12),
-                  //
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Radio(
-                  //         // title: Text("5%",
-                  //         // style: TextStyle(
-                  //         //   fontSize: 18
-                  //         // ),),
-                  //         value: "5",
-                  //         groupValue: per_GST,
-                  //         onChanged: (value) {
-                  //           setState(() {
-                  //             per_GST = value!;
-                  //           });
-                  //         }
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                 ],
               ),
             ),
             const Spacer(),
             GestureDetector(
               onTap: () {
+                item["sub_total"] = (item["price"] * item["qty"]);
                 item["gst_value"] = ((item["price"] * item["qty"] )* item["gst"])/100;
                 item["Sgst"] = item["gst_value"]/2;
                 item["Cgst"] = item["gst_value"]/2;
